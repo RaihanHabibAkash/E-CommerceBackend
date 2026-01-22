@@ -13,21 +13,27 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    disCountAmount: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     price: {
         type: Number,
         required: true,
-        default: 0
+        default: 0,
+        min: 0
     },
     stock: {
         type: Number,
         required: true,
-        default: Number
+        default: 0
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
         required: false
-    }, 
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
